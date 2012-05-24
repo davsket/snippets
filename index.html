@@ -73,6 +73,41 @@
 				</pre>
 			</div>
 		</article>
+
+		<article class="example">
+			<h3>
+				Prompt on Unload/Close
+			</h3>
+			<div class="content">
+				<p>
+					Do you remember the confirmation dialog that appears in Gmail
+					when you are trying to close the tab/window and you did'nt save
+					your draft? This is teh version that works ALSO on IE7! 
+				</p>
+				<address>
+					Source: <a href="http://www.nathanblomquist.net/blog/2007/10/12/onbeforeunload-ie7-woes/">onbeforeunload IE7 Woes!</a>
+				</address>
+				<pre>
+&lt;script&gt;
+	window.onbeforeunload = confirmExit;
+	function confirmExit()
+	{
+	  // normally this if-check wouldn't be here,
+	  // cause the event handler was nulled elsewhere.
+	  // But IE7 doesn't respect the null, and
+	  // wants the handler to not return anything
+	  // (not even null).
+	  if (!goodExit)
+	  {
+	    return "Leaving this page will cause all unplaced orders to be discarded."+
+	    "  Are you sure you want to leave the page?";
+	  }
+	  // notice no return statement here!
+	}
+&lt;/script&gt;
+				</pre>
+			</div>
+		</article>
 	</section>
 
 
